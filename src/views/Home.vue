@@ -17,7 +17,7 @@
                     </select>
                 </div>
             </div>
-            <div v-if="filterCountries <=0">
+            <div v-if="!filterCountries.length">
                 <div class="alert alert-info" role="alert">
                     Loading data 
                 </div>

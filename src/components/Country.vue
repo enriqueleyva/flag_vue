@@ -1,6 +1,6 @@
 <template>
     <div class="card" >
-        <img :src="country.flag" :alt="country.name" class="card-img-top" >
+        <img :src="country.flag" :alt="country.name" class="card-img-top ">
         <div class="card-body">
 
             <router-link :to="{name: 'detail-country', params: {id:country.alpha3Code}}"><h5 class="card-title">{{country.name}}</h5></router-link>
@@ -20,5 +20,9 @@ export default {
 </script>
 
 <style>
-
+    .card-img-top {
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+    }
 </style>
