@@ -1,7 +1,5 @@
 <template>
     <LayoutDefault>
-
-        
         <div class="container">
             <div class="row">
                 <div class="col-6">
@@ -23,7 +21,7 @@
                 </div>
             </div>
             <br>
-            <div class="row">
+            <div class="row gy-3">
                     <div class="col-3"  v-for="country in filterCountries" 
                                 :key="country.name">
                     <div >
@@ -84,5 +82,5 @@ export default {
 </script>
 
 <style>
-
+    *{font-family: 'Nunito Sans', sans-serif}
 </style>
