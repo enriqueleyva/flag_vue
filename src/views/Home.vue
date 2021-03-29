@@ -7,14 +7,19 @@
                 <div class="col-6">
                     <input type="text" v-model="search" placeholder="Search a country" class="form-control">
                 </div>
+                
                 <div class="col-6">
                     <select class="form-select" v-model="selectedRegion" aria-label="Default select example">
                         <option v-for="region in regions" 
                                 :key="region">
                                 {{region}}
                         </option>
-                        
                     </select>
+                </div>
+            </div>
+            <div v-if="filterCountries <=0">
+                <div class="alert alert-info" role="alert">
+                    Loading data 
                 </div>
             </div>
             <br>
