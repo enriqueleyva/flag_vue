@@ -1,8 +1,25 @@
 <template>
     <LayoutDefault>
+
+        
         <div class="container">
             <div class="row">
-                    <div class="col-3"  v-for="country in countries" 
+                <div class="col-6">
+                    <input type="text" v-model="search" placeholder="Search a country" class="form-control">
+                </div>
+                <div class="col-6">
+                    <select class="form-select" v-model="selectedRegion" aria-label="Default select example">
+                        <option v-for="region in regions" 
+                                :key="region">
+                                {{region}}
+                        </option>
+                        
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                    <div class="col-3"  v-for="country in filterCountries" 
                                 :key="country.name">
                     <div >
                         <Country :country='country'></Country>
@@ -26,6 +43,9 @@ export default {
     data(){
         return{
             countries: [],
+            regions: ['','Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
+            search: '',
+            selectedRegion: ''
         }
     },
     methods:{},
@@ -38,6 +58,23 @@ export default {
             console.log(error)
         }
     },
+    computed: {
+        filterCountries(){
+            let result = this.countries;
+
+            if (this.search) {
+                result = result.filter(e => e.name.toLowerCase() === this.search.toLowerCase())
+            }
+
+            if (this.selectedRegion) {
+                result = result.filter(e => e.region === this.selectedRegion)
+            }
+            if (!result.length) {
+                result = this.countries
+            }
+            return result;
+        }
+    }
 }
 </script>
 
